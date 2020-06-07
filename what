@@ -1,0 +1,13 @@
+def visit_twitter_and_log_in
+    visit 'https://cards-dev.twitter.com/validator'📁
+    find('input.js-username-field').set(ENV['TWITTER_USERNAME'])
+    find('input.js-password-field').set(ENV['TWITTER_PASSWORD'])
+    click_on('Log in')
+  end
+  def enter_url_and_click_preview(url)
+    find('input.FormControl').set(url)
+    click_on('Preview card')
+    result = has_content?('Page fetched successfully')
+    visit 'https://cards-dev.twitter.com/validator'📁
+  end
+end
